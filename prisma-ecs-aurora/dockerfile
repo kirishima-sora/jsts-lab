@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR /app
+
+RUN apk update
+
+COPY /ts .
+RUN npm install
+# Prisma Clientの生成
+RUN npx prisma generate
+
+CMD ["npm", "run", "start"]
