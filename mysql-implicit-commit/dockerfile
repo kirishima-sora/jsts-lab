@@ -1,0 +1,10 @@
+FROM node:alpine
+
+WORKDIR /app
+
+RUN apk update
+
+COPY /ts .
+RUN npm install
+
+CMD ["npm", "run", "start"]
